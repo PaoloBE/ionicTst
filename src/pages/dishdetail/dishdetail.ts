@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite'
@@ -26,7 +26,8 @@ export class DishdetailPage {
               public navCtrl: NavController,
               public navParams: NavParams,
               @Inject('BaseURL') private BaseURL,
-              public favoriteService: FavoriteProvider) {
+              public favoriteService: FavoriteProvider,
+              public toastCtrl: ToastController) {
     this.dish = navParams.get('dish');
     this.favorite = this.favoriteService.isFavorite(this.dish.id);
     this.numcomments = this.dish.comments.length;
@@ -41,5 +42,9 @@ export class DishdetailPage {
 
   addToFavorites(){
     this.favorite = this.favoriteService.addFavorite(this.dish.id)
+    this.toastCtrl.create({
+      message: 'Dish ' + this.dish.id + ' added as favorite successfully',
+      position: 'middle',
+      duration: 3000}).present();
   }
 }

@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Dish } from '../../shared/dish';
 import { Observable } from 'rxjs/Observable';
 import { DishProvider } from '../dish/dish';
+
 /*
   Generated class for the FavoriteProvider provider.
 
