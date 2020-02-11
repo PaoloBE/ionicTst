@@ -2,9 +2,11 @@
 
   <ion-navbar color="primary" fxFlex>
     <ion-title>Dish Details</ion-title>
-    <button ion-button icon-only>
-      <ion-icon color="primary" name="add"></ion-icon>
-    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="callActSh()">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
