@@ -23,8 +23,6 @@ export class DishdetailPage {
   avgstars: string;
   numcomments: number;
   favorite: boolean;
-  //comment: Comment;
-  commentFrm: FormGroup;
 
   constructor(
               public navCtrl: NavController,
@@ -41,11 +39,7 @@ export class DishdetailPage {
     let total = 0;
     this.dish.comments.forEach(comment => total += comment.rating );
     this.avgstars = (total/this.numcomments).toFixed(2);
-    this.commentFrm = this.formBuilder.group({
-      rating: 5,
-      comment:['',Validators.required],
-      author:['',Validators.required]
-    })
+    
   }
 
   ionViewDidLoad() {
