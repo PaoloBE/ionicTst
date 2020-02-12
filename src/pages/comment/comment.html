@@ -19,22 +19,22 @@
   <ion-title>Reserve Table</ion-title>
 </ion-toolbar>
 <ion-content padding>
-  <form [formGroup]="comment" (ngSubmit)="onSubmit()">
+  <form [formGroup]="commentFrm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label floating>Your Name</ion-label>
       <ion-input formControlName="author" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Your rating</ion-label>
-      <ion-range min="1" max="5" step="1">
+      <ion-range min="1" max="5" step="1" formControlName="rating">
         <ion-icon size="small" range-left name="happy"></ion-icon>
         <ion-icon size="large" range-right name="sad"></ion-icon>
       </ion-range>
     </ion-item>
     <ion-item>
       <ion-label floating>Your Comment</ion-label>
-      <ion-textarea rows="6" cols="20"></ion-textarea>
+      <ion-textarea rows="6" cols="20" formControlName="comment"></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!reservation.valid">Submit</button>
+    <button ion-button type="submit" [disabled]="!commentFrm.valid">Submit</button>
   </form>
 </ion-content>

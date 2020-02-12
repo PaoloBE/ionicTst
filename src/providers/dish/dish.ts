@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Dish } from '../../shared/dish';
 import { Observable } from 'rxjs/Observable';
+import { map, catchError } from 'rxjs/operators'
 import { Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { baseURL } from '../../shared/baseurl';
 import { ProcessHttpmsgProvider } from '../process-httpmsg/process-httpmsg';
 import 'rxjs/add/operator/map';
@@ -35,8 +37,6 @@ export class DishProvider {
     return this.http.get(baseURL + 'dishes?featured=true')
                     .map(res => { return this.processHTTPMsgService.extractData(res)[0]; })
                     .catch(error => { return this.processHTTPMsgService.handleError(error); });
-  }
-
-  
+  } 
 
 }

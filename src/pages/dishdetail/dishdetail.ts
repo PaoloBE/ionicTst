@@ -66,6 +66,7 @@ export class DishdetailPage {
           text: 'Add Comment',
           handler: () => {
             let modal = this.modalCtrl.create(CommentPage);
+            modal.onDidDismiss(data => {if(data){this.dish.comments.push(data)}})
             modal.present();
           }
         },{
