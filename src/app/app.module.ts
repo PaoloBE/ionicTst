@@ -14,6 +14,7 @@ import { DishdetailPage } from '../pages/dishdetail/dishdetail'
 import { FavoritesPage } from '../pages/favorites/favorites'
 import { ReservationPage } from '../pages/reservation/reservation'
 import { CommentPage } from '../pages/comment/comment'
+import { LoginPage } from '../pages/login/login'
 
 import { DishProvider } from '../providers/dish/dish';
 import { LeaderProvider } from '../providers/leader/leader';
@@ -23,6 +24,7 @@ import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-htt
 import { HttpModule } from '@angular/http';
 import { baseURL } from '../shared/baseurl';
 import { FavoriteProvider } from '../providers/favorite/favorite';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -34,12 +36,14 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     DishdetailPage,
     FavoritesPage,
     ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +55,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     DishdetailPage,
     FavoritesPage,
     ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

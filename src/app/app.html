@@ -16,6 +16,10 @@
           <ion-icon name="restaurant" item-left></ion-icon>
           Reserve Table
         </button>
+        <button color="primary-pale" menuClose ion-item (click)="openLogin()">
+          <ion-icon name="log-in" item-left></ion-icon>
+          Login
+        </button>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -23,3 +27,4 @@
   <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
   <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
 </ion-split-pane>
+ 
