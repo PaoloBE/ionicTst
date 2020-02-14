@@ -28,8 +28,9 @@ export class FavoritesPage implements OnInit {
 
   ngOnInit() {
     this.favoriteservice.getFavorites()
-      .subscribe(favorites => this.favorites = favorites,
+      .subscribe(favorites => {this.favorites = favorites,console.dir(favorites)},
         errmess => this.errMess = errmess);
+    //  console.dir(this.favorites)
   }
 
   ionViewDidLoad() {

@@ -5,6 +5,7 @@ import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite'
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CommentPage } from '../../pages/comment/comment'
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the DishdetailPage page.
@@ -31,7 +32,8 @@ export class DishdetailPage {
               public favoriteService: FavoriteProvider,
               public toastCtrl: ToastController,
               public actsheetCtrl: ActionSheetController,
-              private formBuilder: FormBuilder,public modalCtrl: ModalController
+              private formBuilder: FormBuilder,public modalCtrl: ModalController,
+              private storage: Storage 
               ) {
     this.dish = navParams.get('dish');
     this.favorite = this.favoriteService.isFavorite(this.dish.id);
@@ -52,6 +54,7 @@ export class DishdetailPage {
       message: 'Dish ' + this.dish.id + ' added as favorite successfully',
       position: 'middle',
       duration: 3000}).present();
+    this.storage.set('',this.dish.id )
   }
   callActSh(){
     const actionSheet = this.actsheetCtrl.create({
